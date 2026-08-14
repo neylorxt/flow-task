@@ -1,36 +1,131 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FlowTask — Landing page
 
-## Getting Started
+Landing page moderne, professionnelle et entièrement responsive pour la plateforme SaaS de gestion de projet **FlowTask**.
 
-First, run the development server:
+Développée avec **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Lucide React** et **Framer Motion**.
+
+> Version anglaise : [README.en.md](./README.en.md)
+
+---
+
+## ✨ Aperçu
+
+Une landing page de qualité « production » pensée comme un vrai produit SaaS :
+
+- **Navbar responsive** — logo, liens de navigation, CTA, menu mobile animé
+- **Hero** — accroche forte, double CTA, mockup du dashboard
+- **Entreprises** — bandeau défilant (marquee) des clients
+- **Fonctionnalités** — 6 cartes (tâches, collaboration, analytics, automatisation, notifications, intégrations)
+- **Démo interactive** — onglets Board / Analytics / Automation avec mockups de dashboard
+- **Workflow** — 4 étapes (créer un projet, assigner les tâches, suivre, analyser)
+- **Intégrations** — 8 outils (GitHub, Slack, Figma, Google Drive, Jira, Notion, Zoom, Loom)
+- **Statistiques** — compteurs animés au scroll
+- **Témoignages** — 6 avis clients avec notation
+- **Tarifs** — 3 plans avec bascule mensuel / annuel
+- **FAQ** — accordéon interactif
+- **CTA final + Footer** — avec lien GitHub
+
+## 🛠️ Stack technique
+
+| Outil | Rôle |
+| --- | --- |
+| [Next.js 16](https://nextjs.org) | Framework React (App Router) |
+| [TypeScript](https://www.typescriptlang.org) | Typage statique |
+| [Tailwind CSS v4](https://tailwindcss.com) | Styles utilitaires |
+| [Lucide React](https://lucide.dev) | Icônes |
+| [Framer Motion](https://www.framer.com/motion) | Animations subtiles |
+
+## 📦 Installation
+
+### Prérequis
+
+- **Node.js** 20.9.0 ou plus récent (recommandé : la dernière version LTS)
+- **npm**, **pnpm** ou **yarn**
+
+### 1. Récupérer le projet
+
+```bash
+git clone https://github.com/neylorxt/flow-task.git
+cd flow-task
+```
+
+### 2. Installer les dépendances
+
+```bash
+npm install
+# ou
+pnpm install
+# ou
+yarn install
+```
+
+### 3. Lancer le serveur de développement
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur.
+Le hot reload est activé : la page se met à jour automatiquement quand vous modifiez les fichiers.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Structure du projet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+flow-task/
+├── app/
+│   ├── globals.css        # Thème, couleurs de marque, animations
+│   ├── layout.tsx         # Layout racine (polices, métadonnées SEO)
+│   └── page.tsx           # Composition de toutes les sections
+├── components/
+│   ├── ui/                # Primitives réutilisables
+│   │   ├── Button.tsx
+│   │   ├── Container.tsx
+│   │   └── FadeIn.tsx     # Animation d'entrée + SectionHeading
+│   ├── Navbar.tsx
+│   ├── Hero.tsx
+│   ├── TrustedBy.tsx
+│   ├── Features.tsx
+│   ├── Showcase.tsx       # Onglets interactifs (démo produit)
+│   ├── Workflow.tsx
+│   ├── Integrations.tsx
+│   ├── Stats.tsx          # Compteurs animés
+│   ├── Testimonials.tsx
+│   ├── Pricing.tsx
+│   ├── FAQ.tsx
+│   ├── FinalCTA.tsx
+│   ├── Footer.tsx
+│   ├── Logo.tsx
+│   └── DashboardMockup.tsx  # Mockup réutilisable (3 vues)
+└── package.json
+```
 
-## Learn More
+Chaque section est un composant isolé et réutilisable : le contenu de la page est composé dans `app/page.tsx`.
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 Scripts disponibles
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Commande | Description |
+| --- | --- |
+| `npm run dev` | Lance le serveur de développement |
+| `npm run build` | Crée la version de production optimisée |
+| `npm start` | Sert la version de production (après `build`) |
+| `npm run lint` | Vérifie le code avec ESLint |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎨 Personnalisation
 
-## Deploy on Vercel
+- **Couleur de marque** : le dégradé violet/indigo est défini dans `app/globals.css` (variable `--color-brand-*`) et utilisé via les classes `bg-brand-*` / `text-brand-*`.
+- **Contenu** : chaque section (`Features`, `Testimonials`, `Pricing`, `FAQ`, etc.) expose ses données sous forme de tableaux en tête de fichier — modifiez-les sans toucher au JSX.
+- **Polices** : la police Inter est chargée dans `app/layout.tsx` via `next/font`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🚀 Déploiement
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+La façon la plus simple est de déployer sur [Vercel](https://vercel.com) :
+
+1. Importez le dépôt GitHub dans Vercel.
+2. Vercel détecte automatiquement Next.js (aucune configuration requise).
+3. Déployez.
+
+Vous pouvez aussi utiliser toute plateforme supportant Next.js (Netlify, Cloudflare Pages, Node.js / Docker, etc.).
+
+## 📄 Licence
+
+Ce projet est fourni à titre de démonstration. Toutes les marques et noms de produits cités appartiennent à leurs propriétaires respectifs.
