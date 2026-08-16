@@ -1,5 +1,7 @@
 # FlowTask — Landing page
 
+![Aperçu du projet](./public/preview/preview.png)
+
 Landing page moderne, professionnelle et entièrement responsive pour la plateforme SaaS de gestion de projet **FlowTask**.
 
 Développée avec **Next.js (App Router)**, **TypeScript**, **Tailwind CSS v4**, **Lucide React** et **Framer Motion**.
